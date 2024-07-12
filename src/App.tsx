@@ -4,18 +4,9 @@ import '@fontsource/roboto/500.css';
 import '@fontsource/roboto/700.css';
 import './global.css'
 import './App.css'
-// import { PaymentOption } from './components/PaymentOption';
-import { useState } from 'react';
+import { PixPaymentComponent } from "./components/PixPaymentComponent"
 
 function App() {
-  const [isPixChecked, setIsPixChecked] = useState(false);
-  
-  function handleOnChangeOptionPix(){
-    setIsPixChecked(!isPixChecked);
-  }
-
-  console.log(isPixChecked);
-  
   return (
     <>
       <main className='container'>
@@ -33,23 +24,8 @@ function App() {
             João, como você quer pagar?
           </h2>
 
-          <div className='paymentOptionsContainer'>
-            <fieldset onChange={handleOnChangeOptionPix} className={isPixChecked ? "paymentOptionChecked" : "paymentOptions"}>
-              <legend>Pix</legend>
-              <div className='optionPayment'>
-                <label htmlFor="pix"><strong>1x</strong> R$ 30.500,00</label>
-                <input type="radio" id="pix" name="drone" value="pix" />
-              </div>
-              <div className='info'>
-                <span className='info-discount'>Ganhe 3% de Cashback</span>
-                <span className='info-value'>
-                  🤑 <strong>R$ 300,00</strong> de volta no seu Pix na hora <div className='triangle'/>
-                </span>
-              </div>
-            </fieldset>
-          </div>
-        
-
+          
+          <PixPaymentComponent />
           {/* <div className='paymentOptionsContainerPixCard'>
             <fieldset className='paymentOptionsPixCard'>
               <legend>Pix Parcelado</legend>
